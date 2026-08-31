@@ -244,7 +244,7 @@ app/
 kane_test.js         Kane runner: port discovery, NDJSON capture, failure handoff
 kane_guard.js        closed-loop watcher: inject / heal / watch
 kane-traces/         persisted NDJSON evidence from every run
-DEMO_SCRIPT.md       3-minute demo video script
+DEPLOY.md            deployment guide and where Kane CLI actually runs
 SUBMISSION.md        hackathon submission copy
 ```
 
