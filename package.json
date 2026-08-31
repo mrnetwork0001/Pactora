@@ -1,0 +1,36 @@
+{
+  "name": "pactora",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Autonomous Multi-Role Escrow & SLA Marketplace verified by a Closed-Loop Self-Healing Kane CLI Verification Engine.",
+  "license": "Apache-2.0",
+  "author": "Ifeanyichukwu Onwo (mrnetwork)",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "kane:test": "node kane_test.js",
+    "kane:guard": "node kane_guard.js",
+    "kane:inject": "node kane_guard.js --inject",
+    "kane:heal": "node kane_guard.js --heal",
+    "kane:balance": "kane-cli balance",
+    "kane:login": "kane-cli login --oauth",
+    "kane:watch": "node kane_guard.js --watch"
+  },
+  "dependencies": {
+    "next": "14.2.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@testmuai/kane-cli": "^0.8.7",
+    "@types/node": "^20.11.16",
+    "@types/react": "^18.2.52",
+    "@types/react-dom": "^18.2.19",
+    "autoprefixer": "^10.4.17",
+    "postcss": "^8.4.35",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.3.3"
+  }
+}
