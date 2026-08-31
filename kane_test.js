@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Pactora — Kane CLI Verification Runner
+ * Pactora - Kane CLI Verification Runner
  * ---------------------------------------------------------------------------
  * Dispatches plain-English browser objectives to Kane CLI and captures the
  * NDJSON trace that powers the closed-loop self-healing feedback moat.
@@ -31,7 +31,7 @@ const ONLY = (() => {
 })();
 
 /**
- * The multi-role verification suite. Each objective is plain English — Kane
+ * The multi-role verification suite. Each objective is plain English - Kane
  * drives a real Chrome browser and asserts against the live DOM.
  */
 const SUITE = [
@@ -62,7 +62,7 @@ const SUITE = [
  * Locate the running Pactora server.
  *
  * `next dev` silently increments the port when 3000 is busy, and a developer
- * machine very often has an unrelated app already on 3000 — pointing Kane at
+ * machine very often has an unrelated app already on 3000 - pointing Kane at
  * the wrong application is a silent, demo-killing failure. So instead of
  * trusting a hardcoded port we probe the range and positively identify Pactora
  * by the `data-app="pactora"` marker its layout renders.
@@ -77,7 +77,7 @@ async function discoverAppUrl() {
       const html = await res.text();
       if (html.includes('data-app="pactora"')) return url;
     } catch {
-      /* port closed or not serving HTTP — keep probing */
+      /* port closed or not serving HTTP - keep probing */
     }
   }
   return null;
@@ -108,7 +108,7 @@ function runObjective(test, appUrl) {
       test.objective,
       "--url",
       `${appUrl}/app`, // the escrow portals live at /app; / is the landing page
-      "--agent", // NDJSON output — the machine-readable failure trace
+      "--agent", // NDJSON output - the machine-readable failure trace
       "--final-validation",
       "on",
       "--timeout",
@@ -158,7 +158,7 @@ function runObjective(test, appUrl) {
     child.on("close", (code) => {
       out.end();
       // An unauthenticated CLI is an environment problem, not a product
-      // regression — never let it masquerade as a failing escrow assertion.
+      // regression - never let it masquerade as a failing escrow assertion.
       if (/Not authenticated/i.test(raw)) {
         resolve({ ok: false, status: "unauthenticated", code, events, traceFile });
         return;
@@ -200,7 +200,7 @@ async function main() {
   }
 
   line();
-  console.log(" 🤝 PACTORA — Closed-Loop Kane CLI Verification Runner");
+  console.log(" 🤝 PACTORA - Closed-Loop Kane CLI Verification Runner");
   console.log(` Target: ${appUrl}/app${HEADLESS ? " (headless)" : ""}`);
   console.log(` Suite:  ${plan.length} of ${SUITE.length} multi-role browser objectives`);
   line();
@@ -211,7 +211,7 @@ async function main() {
 
     if (result.status === "unauthenticated") {
       line();
-      console.error("\n 🔐 Kane CLI is not authenticated — no tests were run.\n");
+      console.error("\n 🔐 Kane CLI is not authenticated - no tests were run.\n");
       console.error("   Authenticate with your TestMu AI account, then re-run:");
       console.error("     npx kane-cli login --oauth");
       console.error("     node kane_test.js\n");
@@ -221,8 +221,8 @@ async function main() {
     results.push({ ...test, ...result });
     console.log(
       result.ok
-        ? `   ✅ PASS — trace: kane-traces/${test.id}.ndjson`
-        : `   ❌ FAIL (${result.status}) — trace: kane-traces/${test.id}.ndjson`
+        ? `   ✅ PASS - trace: kane-traces/${test.id}.ndjson`
+        : `   ❌ FAIL (${result.status}) - trace: kane-traces/${test.id}.ndjson`
     );
   }
 
@@ -233,12 +233,12 @@ async function main() {
 
   const failures = results.filter((r) => !r.ok);
   if (!failures.length) {
-    console.log(" ✅ 100% GREEN — multi-role escrow verified end-to-end by Kane CLI.");
+    console.log(" ✅ 100% GREEN - multi-role escrow verified end-to-end by Kane CLI.");
     process.exit(0);
   }
 
   // Closed-loop handoff: print the NDJSON evidence Claude Code patches against.
-  console.log("\n 🔁 SELF-HEALING HANDOFF — feeding NDJSON failure trace to Claude Code:\n");
+  console.log("\n 🔁 SELF-HEALING HANDOFF - feeding NDJSON failure trace to Claude Code:\n");
   for (const f of failures) {
     console.log(` ✗ ${f.title} [${f.id}]`);
     console.log(`   objective: ${f.objective}`);
