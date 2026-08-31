@@ -95,7 +95,7 @@ export default function LandingPage() {
 
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/45">
             Pactora is a multi-role escrow marketplace. Its correctness
-            doesn&apos;t live in any single component — it lives between two
+            doesn&apos;t live in any single component - it lives between two
             parties. That&apos;s a bug class types and unit tests cannot see.
           </p>
 
@@ -131,7 +131,7 @@ export default function LandingPage() {
           </p>
           <p className="mt-8 max-w-2xl leading-relaxed text-white/40">
             Always. Across every deposit, delivery, release and dispute. No
-            single component owns this rule — which is why no single-component
+            single component owns this rule - which is why no single-component
             test can defend it.
           </p>
         </div>
@@ -189,7 +189,7 @@ export default function LandingPage() {
                 <span className="font-mono text-xs text-white/70">
                   kane-traces/
                 </span>{" "}
-                — the evidence the agent patches against.
+                - the evidence the agent patches against.
               </p>
               <div className="mt-8 border-l-2 border-acid pl-5">
                 <Label>Verdict returned</Label>
@@ -266,7 +266,7 @@ export default function LandingPage() {
             See both portals.
           </h2>
           <p className="mx-auto mt-6 max-w-lg leading-relaxed text-white/40">
-            Deposit, deliver, release, dispute — and watch the ledger invariant
+            Deposit, deliver, release, dispute - and watch the ledger invariant
             hold across every transition.
           </p>
           <Link

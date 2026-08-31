@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 
 /* ────────────────────────────────────────────────────────────────────────────
- * PACTORA — Autonomous Multi-Role Escrow & SLA Marketplace
+ * PACTORA - Autonomous Multi-Role Escrow & SLA Marketplace
  * Verified by the Closed-Loop Self-Healing Kane CLI Verification Engine.
  *
  * KANE INJECTION POINT
@@ -63,7 +63,7 @@ export default function PactoraPage() {
       id: 0,
       actor: "SYSTEM",
       event: "Contract PAC-4417 opened · SLA 72h",
-      delta: "—",
+      delta: "-",
     },
   ]);
 
@@ -86,7 +86,7 @@ export default function PactoraPage() {
   const handleDeliver = () => {
     if (status !== "ESCROW_LOCKED") return;
     setStatus("WORK_DELIVERED");
-    log("SELLER", `Milestone delivered in ${DELIVERED_AT_HOURS}h · SLA met`, "—");
+    log("SELLER", `Milestone delivered in ${DELIVERED_AT_HOURS}h · SLA met`, "-");
   };
 
   /* ── Buyer action: approve and release escrow to the seller ─────────────── */
@@ -117,7 +117,7 @@ export default function PactoraPage() {
         id: 0,
         actor: "SYSTEM",
         event: "Contract PAC-4417 opened · SLA 72h",
-        delta: "—",
+        delta: "-",
       },
     ]);
   };
@@ -148,7 +148,7 @@ export default function PactoraPage() {
             🤝 Pactora
           </h1>
           <p className="mt-1 max-w-2xl text-sm text-slate-400">
-            Autonomous multi-role escrow &amp; SLA marketplace — verified by a
+            Autonomous multi-role escrow &amp; SLA marketplace - verified by a
             closed-loop self-healing Kane CLI engine.
           </p>
         </div>
@@ -172,11 +172,11 @@ export default function PactoraPage() {
       </header>
 
       <p className="mb-6 font-mono text-[10px] leading-relaxed text-white/25">
-        No wallet, no login, no backend — all state is in-memory React state, so the
+        No wallet, no login, no backend - all state is in-memory React state, so the
         flow is fully deterministic for Kane CLI. Refresh to reset.
       </p>
 
-      {/* ── Ledger invariant banner — Kane's cross-party ground truth ───────── */}
+      {/* ── Ledger invariant banner - Kane's cross-party ground truth ───────── */}
       <section
         data-testid="ledger-invariant"
         className={`mb-8 flex flex-wrap items-center justify-between gap-4 rounded-xl border px-5 py-4 ${

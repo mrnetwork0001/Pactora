@@ -15,7 +15,7 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Pactora — Autonomous Multi-Role Escrow & SLA Marketplace",
+  title: "Pactora - Autonomous Multi-Role Escrow & SLA Marketplace",
   description:
     "Multi-role escrow marketplace verified by a closed-loop self-healing Kane CLI engine.",
 };
