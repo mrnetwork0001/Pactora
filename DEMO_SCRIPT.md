@@ -3,6 +3,18 @@
 > **Goal:** show Kane CLI catching a cross-party financial bug that types and unit
 > tests cannot see, then show Claude Code closing the loop to a 100% GREEN run.
 
+## Recording plan: live URL for proof, local for the loop
+
+Use **both**. They do different jobs:
+
+| Segment | Where | Why |
+| --- | --- | --- |
+| "It ships" - open the app, click through | **Live Vercel URL** | Proves it is really deployed and judges can open it themselves |
+| Inject -> catch -> heal | **localhost** | `--inject` edits source; on Vercel every cycle needs a rebuild + redeploy (~90s) and the video dies waiting |
+| Closing proof | **Live Vercel URL** | `PACTORA_URL=https://pactora-app-olive.vercel.app node kane_test.js` -> 3/3 green in production |
+
+Live app: https://pactora-app-olive.vercel.app/app
+
 **Setup before recording**
 ```bash
 npm install
@@ -19,8 +31,11 @@ Have two panes visible: browser (Pactora) on the left, terminal on the right.
 > check whether the feature actually *works*. That gap is where regressions
 > live - and it gets worse when a bug only appears **between two users**."
 
-Show Pactora: Buyer Portal ($2,000) on the left, Seller Portal on the right,
-and the green **Ledger Balanced** banner across the top.
+Open the **live deployment** at https://pactora-app-olive.vercel.app/app - a real URL,
+no login, no wallet. Buyer Portal ($2,000) left, Seller Portal right, green
+**Ledger Balanced** banner across the top.
+
+> "This is deployed. You can open it right now."
 
 > "Pactora is a multi-role escrow marketplace. The invariant that matters isn't
 > in any one component - it's across both parties: buyer + escrow + seller must
@@ -89,8 +104,17 @@ Browser: banner back to green **Ledger Balanced**.
 ## [2:45–3:00] The Close
 
 > "Bug injected, caught in a real browser across two roles, auto-patched from the
-> trace, and re-verified green - no human opened a browser once. That's Kane CLI
-> as multi-role browser ground truth for AI coding agents."
+> trace, and re-verified green - no human opened a browser once."
+
+Optional closing shot - point Kane at the **live deployment**:
+
+```bash
+PACTORA_URL=https://pactora-app-olive.vercel.app node kane_test.js
+# RESULT: 3/3 passed
+```
+
+> "And the same three objectives pass against production. That's Kane CLI as
+> multi-role browser ground truth for AI coding agents."
 
 ---
 
