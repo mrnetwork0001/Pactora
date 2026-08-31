@@ -26,23 +26,54 @@ npm run kane:balance
 ```
 Two windows on screen: browser left, terminal right.
 
+**Beat map**
+
+| Time | Beat | Where |
+| --- | --- | --- |
+| 0:00-0:20 | Landing page - headline, invariant, the loop, the verdict | Vercel `/` |
+| 0:20-0:35 | Launch App -> deposit, deliver, release | Vercel `/app` |
+| 0:35-0:50 | Inject the regression | localhost |
+| 0:50-1:20 | Kane catches it in a real browser | localhost |
+| 1:20-1:50 | Agent reads the verdict, patches, 3/3 green | localhost |
+| 1:50-2:00 | Close | - |
+
 ---
 
-## 0:00-0:15 | Hook (live URL)
+## 0:00-0:20 | Landing page - the thesis
 
-Open **https://pactora-app-olive.vercel.app/app**
+Open **https://pactora-app-olive.vercel.app** (the landing page, not /app).
 
-> "AI agents write code in seconds. Someone still has to open a browser to check
-> it works. This is Pactora - a multi-role escrow marketplace, deployed, live.
-> Buyer on the left, seller on the right."
+**Hero.** Let the headline sit on screen for a beat:
+*"The bug that compiles clean and still loses your money."*
 
-Point at the green **Ledger Balanced** banner.
+> "AI agents write code in seconds. But someone still has to open a browser to
+> check it actually works. That's the gap. Pactora is a multi-role escrow
+> marketplace built to live inside that gap."
 
-> "One rule holds it together: buyer plus escrow plus seller always equals two
-> thousand dollars. That rule doesn't live in any single component. It lives
-> between two parties."
+**Scroll to the invariant block** - `buyer + escrow + seller === $2,000`:
 
-## 0:15-0:30 | It ships
+> "Everything here hangs on one rule. Buyer, plus escrow, plus seller, always
+> equals two thousand dollars. Notice where that rule lives: not in any single
+> component - in the relationship between two parties. That's the whole point.
+> No single-component test can defend it."
+
+**Scroll through the three loop cards** - Break / Catch / Heal:
+
+> "Break it, catch it in a real browser, heal it - without a human opening a
+> browser once."
+
+**Scroll to the objectives panel** (pause on the verdict box):
+
+> "The tests are plain English. No selectors, no page objects. And that's the
+> verdict Kane returns: a confirmed product bug, severity major, ninety-five
+> percent confidence."
+
+## 0:20-0:35 | Launch the app - it ships
+
+Click **Launch App**.
+
+> "No wallet, no login, no backend. Simulated ledger, deliberately - so the flow
+> is deterministic for Kane. Buyer left, seller right."
 
 Click **Deposit $500** -> buyer $1,500, escrow $500, **Escrow Locked**
 Click **Mark Delivered** -> **Work Delivered**
@@ -50,7 +81,7 @@ Click **Release Funds** -> seller paid $500, **Funds Released**
 
 > "Deposit, deliver, release. The ledger balances at every step."
 
-## 0:30-0:45 | Break it (switch to localhost)
+## 0:35-0:50 | Break it (switch to localhost)
 
 ```bash
 node kane_guard.js --inject
@@ -64,7 +95,7 @@ Show the diff: `DEBIT_MULTIPLIER = 1` -> `2`
 > compiles. The build passes. A unit test of the reducer still goes green.
 > Nothing static catches this - the bug only exists between the two portals."
 
-## 0:45-1:15 | Kane catches it
+## 0:50-1:20 | Kane catches it
 
 ```bash
 node kane_test.js --only escrow-lock
@@ -88,7 +119,7 @@ signal      : objective_contradiction| $1,000 + $500 + $0 = $1,500
 > once, and returned a confirmed product bug - with root cause and the exact
 > contradiction. Not a screenshot. Machine-readable NDJSON."
 
-## 1:15-1:50 | The agent closes the loop
+## 1:20-1:50 | The agent closes the loop
 
 ```bash
 node kane_guard.js --heal
