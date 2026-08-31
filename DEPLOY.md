@@ -55,6 +55,17 @@ latency to every cycle.
 The closed loop is therefore demonstrated locally, where `next dev` hot-reloads the patch in
 milliseconds and Kane re-runs immediately. Deploy for reach; verify the loop locally.
 
+## This deployment
+
+Live: **https://pactora-app-olive.vercel.app**
+
+Verified in production with Kane CLI:
+
+```bash
+PACTORA_URL=https://pactora-app-olive.vercel.app node kane_test.js
+# 3/3 passed - Kane drove a real browser against the deployed app
+```
+
 ## Deploy steps
 
 ### Option A - Vercel dashboard (recommended, no CLI)

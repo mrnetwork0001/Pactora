@@ -6,6 +6,10 @@
 
 Built with Claude Code · Verified by [Kane CLI](https://www.testmuai.com/kane-cli/) · Apache 2.0
 
+**[▶ Live app](https://pactora-app-olive.vercel.app/app)** · **[Landing](https://pactora-app-olive.vercel.app)**
+
+*Kane CLI verifies this deployment: 3/3 objectives green in production.*
+
 `Ships` · `Verified` · `Closed loop` · `Craft`
 
 </div>
@@ -57,6 +61,9 @@ Kane re-ran every objective to a **100% green pass**. No human opened a browser 
 
 ## Quickstart
 
+**Fastest path (no install):** open **[https://pactora-app-olive.vercel.app/app](https://pactora-app-olive.vercel.app/app)** and click `Deposit $500`.
+No wallet, no login, no setup.
+
 ```bash
 git clone https://github.com/mrnetwork0001/Pactora.git
 cd Pactora
@@ -78,7 +85,14 @@ No wallet. No login. No backend. Click `Deposit $500` and watch both portals mov
 ```bash
 npm run kane:login        # TestMu AI account (OAuth)
 npm run kane:balance      # check credits
-node kane_test.js         # 3 plain-English browser objectives
+node kane_test.js         # 3 plain-English browser objectives (local)
+```
+
+Kane can drive the **live deployment** just as easily - this is the exact URL judges open:
+
+```bash
+PACTORA_URL=https://pactora-app-olive.vercel.app node kane_test.js
+# RESULT: 3/3 passed
 ```
 
 ### Reproduce the closed loop
