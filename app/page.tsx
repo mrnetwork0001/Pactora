@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import { PactoraLogo, PactoraMark } from "./mark";
+
 const LOOP_STEPS = [
   {
     n: "01",
@@ -56,9 +58,7 @@ export default function LandingPage() {
       {/* ── Nav ──────────────────────────────────────────────────────────── */}
       <nav className="sticky top-0 z-50 border-b border-void-700 bg-void-950/90 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <span className="font-mono text-xs uppercase tracking-label text-white">
-            Pactora
-          </span>
+          <PactoraLogo />
           <div className="flex items-center gap-5">
             <span className="hidden font-mono text-[10px] uppercase tracking-label text-white/30 sm:inline">
               Kane CLI Hackathon
@@ -279,9 +279,12 @@ export default function LandingPage() {
       </section>
 
       <footer className="mx-auto max-w-6xl px-6 py-10">
-        <p className="font-mono text-[10px] uppercase tracking-label text-white/25">
-          Pactora · Kane CLI Hackathon · TestMu AI · Apache 2.0
-        </p>
+        <div className="flex items-center gap-3">
+          <PactoraMark size={16} className="text-white/25" />
+          <p className="font-mono text-[10px] uppercase tracking-label text-white/25">
+            Pactora · Kane CLI Hackathon · TestMu AI · Apache 2.0
+          </p>
+        </div>
       </footer>
     </div>
   );

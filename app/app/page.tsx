@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+
+import { PactoraMark } from "../mark";
 import { useMemo, useState } from "react";
 
 /* ────────────────────────────────────────────────────────────────────────────
@@ -144,8 +146,9 @@ export default function PactoraPage() {
           >
             ← Back to overview
           </Link>
-          <h1 className="font-display text-3xl font-bold tracking-tighter text-white">
-            🤝 Pactora
+          <h1 className="flex items-center gap-3 font-display text-3xl font-bold tracking-tighter text-white">
+            <PactoraMark size={28} className="text-white/70" />
+            Pactora
           </h1>
           <p className="mt-1 max-w-2xl text-sm text-slate-400">
             Autonomous multi-role escrow &amp; SLA marketplace - verified by a
@@ -186,7 +189,9 @@ export default function PactoraPage() {
         }`}
       >
         <div className="flex items-center gap-3">
-          <span className="text-lg">{isBalanced ? "🟢" : "🔴"}</span>
+          <span
+            className={`h-3 w-3 shrink-0 ${isBalanced ? "bg-acid" : "bg-rose-500"}`}
+          />
           <div>
             <p
               data-testid="ledger-invariant-status"
@@ -332,7 +337,7 @@ export default function PactoraPage() {
             data-testid="sla-status"
             className="mt-5 rounded-lg border border-void-700 px-4 py-3 font-mono text-[11px] text-white/45"
           >
-            ⏱ {slaText}
+            <span className="text-white/25">SLA</span> {slaText}
           </p>
 
           <div className="mt-6 space-y-3">
